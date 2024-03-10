@@ -9,3 +9,40 @@ Answer : Enforce referential integrity constraints: A referential integrity cons
 Validate data during insert and update operations: You can also write code to validate the data during insert and update operations on the "Product" table. This code could check if the provided "category_id" exists in the "product_category" table before inserting or updating the product record.
 
 Both of these approaches will help to ensure that each product in the "Product" table has a valid category assigned to it.
+
+<br>
+<br>
+<br>
+3. Create schema in any Database script or any ORM (Object Relational Mapping)
+Answer : product_category
+
+id (int): The unique identifier for the product category.
+name (varchar): The name of the product category.
+desc (text): A description of the product category.
+created_at (timestamp): The date and time the product category was created.
+modified_at (timestamp): The date and time the product category was last modified.
+deleted_at (timestamp): The date and time the product category was soft deleted.
+product
+
+id (int): The unique identifier for the product.
+name (varchar): The name of the product.
+desc (text): A description of the product.
+SKU (varchar): The unique stock keeping unit for the product.
+category_id (int): The foreign key referencing the product_category table.
+inventory_id (int): The foreign key referencing the product_inventory table (not shown in the image).
+price (decimal): The price of the product.
+discount_id (int): The foreign key referencing the discount table.
+created_at (timestamp): The date and time the product was created.
+modified_at (timestamp): The date and time the product was last modified.
+deleted_at (timestamp): The date and time the product was soft deleted.
+discount
+
+id (int): The unique identifier for the discount.
+name (varchar): The name of the discount.
+desc (text): A description of the discount.
+discount_percent (decimal): The discount percentage.
+active (boolean): A flag indicating if the discount is active.
+created_at (timestamp): The date and time the discount was created.
+modified_at (timestamp): The date and time the discount was last modified.
+deleted_at (timestamp): The date and time the discount was soft deleted.
+This schema uses relationships between tables to represent complex data. For instance, a product can belong to one category (product_category) and have one discount (discount).
